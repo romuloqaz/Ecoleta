@@ -18,6 +18,7 @@ interface Point {
     id: number,
     name: string,
     image: string,
+    image_url: string,
     latitude: number,
     longitude: number,
 }
@@ -81,7 +82,7 @@ const Points = () => {
     }
 
     function handleNavigateToDetail(id: number) {
-        navigation.navigate('Detail', {point_id: id});
+        navigation.navigate('Detail', { point_id: id });
     }
 
     function handleSelectItem(id: number) {
@@ -126,7 +127,7 @@ const Points = () => {
                                     }}
                                 >
                                     <View style={styles.mapMarkerContainer}>
-                                        <Image style={styles.mapMarkerImage} source={{ uri: point.image }} />
+                                        <Image style={styles.mapMarkerImage} source={{ uri: point.image_url }} />
                                         <Text style={styles.mapMarkerTitle}>{point.name}</Text>
                                     </View>
                                 </Marker>
@@ -160,8 +161,6 @@ const Points = () => {
         </>
     );
 }
-
-
 
 const styles = StyleSheet.create({
     container: {
